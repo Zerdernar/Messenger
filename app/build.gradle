@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.schooluser.messenger"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.google.android:flexbox:1.0.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    // хз
+    def autodispose_version = '1.0.0-RC2'
+    implementation "com.uber.autodispose:autodispose:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-ktx:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-android:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-android-ktx:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-android-archcomponents:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-android-archcomponents-ktx:$autodispose_version"
+
+    // Litho
+    implementation 'com.facebook.litho:litho-core:0.21.0'
+    implementation 'com.facebook.litho:litho-widget:0.21.0'
+    compileOnly 'com.facebook.litho:litho-annotations:0.21.0'
+
+    kapt 'com.facebook.litho:litho-processor:0.21.0'
+
+    // SoLoader
+    implementation 'com.facebook.soloader:soloader:0.5.1'
+
+    // For integration with Fresco
+    implementation 'com.facebook.litho:litho-fresco:0.21.0'
+
+    // Sections
+    implementation 'com.facebook.litho:litho-sections-core:0.21.0'
+    implementation 'com.facebook.litho:litho-sections-widget:0.21.0'
+    compileOnly 'com.facebook.litho:litho-sections-annotations:0.21.0'
+
+    kapt 'com.facebook.litho:litho-sections-processor:0.21.0'
+    //  Fresco
+    def fresco_version = '1.10.0'
+    implementation "com.facebook.fresco:fresco:$fresco_version"
+    //Реактивные Клики(взаимодействие с вьюшками) RX
+    def rxbinding_version = '2.2.0'
+    implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:$rxbinding_version"
+    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:$rxbinding_version"
+    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:$rxbinding_version"
+    implementation "com.jakewharton.rxbinding2:rxbinding-design-kotlin:$rxbinding_version"
+    // Гугловские библиотеки
+    def support_version = '28.0.0'
+    implementation "com.android.support:support-v4:$support_version"
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:design:$support_version"
+    implementation "com.android.support:support-dynamic-animation:$support_version"
+    implementation "com.android.support:exifinterface:$support_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    // ViewModule и LiveData
+    def koin_version = '1.0.1'
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    // Кусочк liveData
+    def lifecycle_version = "1.1.1"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    kapt "android.arch.lifecycle:compiler:$lifecycle_version"
+    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
+    // Корутина
+    def coroutines_version = '1.0.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutines_version"
+    // retrofit библиотека которую мы будем использвоать
+    def retrofit_version = '2.4.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+    // kotpref(хранение данных):
+    // core
+    implementation 'com.chibatching.kotpref:kotpref:2.6.0'
+    // optional, auto initialization module
+    implementation 'com.chibatching.kotpref:initializer:2.6.0'
+    // optional, support saving enum value and ordinal
+    implementation 'com.chibatching.kotpref:enum-support:2.6.0'
+    // optional, support saving json string through Gson
+    implementation 'com.chibatching.kotpref:gson-support:2.6.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // optional, support LiveData observable preference
+    implementation 'com.chibatching.kotpref:livedata-support:2.6.0'
+    implementation 'android.arch.lifecycle:livedata:1.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.3.11"
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    // DB Room
+    def room_version = "1.1.1"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    // добавляет контекст который можно добавлять откуда угодно
+    def splitties_version = '2.0.0-alpha4'
+    implementation "com.louiscad.splitties:splitties-appctx:$splitties_version"
+}
+

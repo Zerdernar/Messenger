@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:id="@+id/all_left_menu">
+
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/search_panel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+                android:layout_width="0dp"
+                android:hint="Нажмите сюда для поиска"
+                android:background="#00000000"
+                android:textColorHint="#B4B4B4"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                app:layout_constraintRight_toLeftOf="@+id/goog_mic"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/search"
+                android:id="@+id/goog_mic"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorGrey"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+        </View>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <com.facebook.litho.LithoView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/left_dialog"
+            app:layout_constraintTop_toBottomOf="@+id/search_panel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:clickable="true"
+            android:focusable="true">
+
+    </com.facebook.litho.LithoView>
+
+</android.support.constraint.ConstraintLayout>
